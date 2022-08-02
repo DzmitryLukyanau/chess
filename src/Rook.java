@@ -1,5 +1,5 @@
-public class Bishop extends ChessPiece {
-    public Bishop(String color) {
+public class Rook extends ChessPiece {
+    public Rook(String color) {
         super(color);
     }
 
@@ -10,14 +10,14 @@ public class Bishop extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (line != toLine && chessBoard.checkPos(toLine) && chessBoard.checkPos(toColumn) &&
-        Math.abs(toLine-line) == Math.abs(toColumn-column)) {
+        if (chessBoard.checkPos(toLine) && chessBoard.checkPos(toColumn) &&
+                ((line == toLine && column !=toColumn) || (line != toLine && column ==toColumn))) {
             return true;
-        }else return false;
+        } return false;
     }
 
     @Override
     public String getSymbol() {
-        return "B";
+        return "R";
     }
 }
