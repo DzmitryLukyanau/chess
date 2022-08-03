@@ -29,7 +29,7 @@ public class Pawn extends ChessPiece {
     }
 
     private boolean blackCanMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (toColumn == column && toLine < line && chessBoard.checkPos(toLine) && chessBoard.checkPos(toColumn)) {
+        if (toColumn == column && toLine < line && checkPos(toLine, toColumn)) {
             if (line == 6) {
                 return line - toLine <= 2;
             } else return line - toLine == 1;

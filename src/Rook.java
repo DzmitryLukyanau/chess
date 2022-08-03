@@ -10,7 +10,7 @@ public class Rook extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (chessBoard.checkPos(toLine) && chessBoard.checkPos(toColumn) &&
+        if (checkPos(toLine, toColumn) &&
                 ((line == toLine && column !=toColumn) || (line != toLine && column ==toColumn))) {
             return true;
         } return false;

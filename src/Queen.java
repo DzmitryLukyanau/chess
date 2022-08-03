@@ -11,11 +11,10 @@ public class Queen extends ChessPiece {
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (!checkPos(toLine, toColumn)) return false;
-        if ((line != toLine && Math.abs(toLine-line) == Math.abs(toColumn-column)) ||
-                (line == toLine && column !=toColumn) || (line != toLine && column ==toColumn)) {
+        if ((line != toLine && Math.abs(toLine - line) == Math.abs(toColumn - column)) ||
+                (line == toLine && column != toColumn) || (line != toLine && column == toColumn)) {
             return true;
         } else return false;
-
     }
 
     @Override
