@@ -121,7 +121,7 @@ public class ChessBoard {
                     board[7][4] = null;
                     board[7][6] = new King("Black");   // move King
                     board[7][6].check = false;
-                    board[7][0] = null;
+                    board[7][7] = null;
                     board[7][5] = new Rook("Black");   // move Rook
                     board[7][5].check = false;
                     nowPlayer = "White";  // next turn
