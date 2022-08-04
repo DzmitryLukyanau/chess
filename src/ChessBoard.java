@@ -93,6 +93,7 @@ public class ChessBoard {
             } else return false;
         }
     }
+
     public boolean castling7() {
         if (nowPlayer.equals("White")) {
             if (board[0][7] == null || board[0][4] == null) return false;
