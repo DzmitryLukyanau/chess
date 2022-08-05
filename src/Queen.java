@@ -10,10 +10,68 @@ public class Queen extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (!checkPos(toLine, toColumn)) return false;
-        if ((line != toLine && Math.abs(toLine - line) == Math.abs(toColumn - column)) ||
-                (line == toLine && column != toColumn) || (line != toLine && column == toColumn)) {
-            return true;
+        if (checkPos(toLine, toColumn)) {
+            if (line != toLine && Math.abs(toLine - line) == Math.abs(toColumn - column))   {
+                int nothing = 0;
+                if (toLine > line) {
+                    if (toColumn > column) {
+                        for (int i = 1; i < toLine - line; i++) {
+                            if (chessBoard.board[line + i][column + i] == null) nothing++;
+                            else return false;
+                        }
+
+                    } else {
+                        for (int i = 1; i < toLine - line; i++) {
+                            if (chessBoard.board[line + i][column - i] == null) nothing++;
+                            else return false;
+                        }
+                    }
+                } else {
+                    if (toColumn > column) {
+                        for (int i = 1; i < line - toLine; i++) {
+                            if (chessBoard.board[line - i][column + i] == null) nothing++;
+                            else return false;
+                        }
+                    } else {
+                        for (int i = 1; i < line - toLine; i++) {
+                            if (chessBoard.board[line - i][column - i] == null) nothing++;
+                            else return false;
+                        }
+                    }
+                }
+                return chessBoard.board[toLine][toColumn] == null ||
+                        !color.equals(chessBoard.board[toLine][toColumn].getColor());
+            }
+            if ((line == toLine && column != toColumn) || (line != toLine && column == toColumn)) {
+                int something = 0;
+                if (line == toLine) {
+                    if (column < toColumn) {
+                        for (int i = 1; i < toColumn - column; i++) {
+                            if (chessBoard.board[line][column + i] == null) something++;
+                            else return false;
+                        }
+                    } else {
+                        for (int i = 1; i < column - toColumn; i++) {
+                            if (chessBoard.board[line][column - i] == null) something++;
+                            else return false;
+                        }
+                    }
+                } else {
+                    if (line < toLine) {
+                        for (int i = 1; i < toLine - line; i++) {
+                            if (chessBoard.board[line + i][column] == null) something++;
+                            else return false;
+                        }
+                    } else {
+                        for (int i = 1; i < line - toLine; i++) {
+                            if (chessBoard.board[line - i][column] == null) something++;
+                            else return false;
+                        }
+                    }
+                }
+                return chessBoard.board[toLine][toColumn] == null ||
+                        !color.equals(chessBoard.board[toLine][toColumn].getColor());
+            } else return false;
         } else return false;
     }
 
