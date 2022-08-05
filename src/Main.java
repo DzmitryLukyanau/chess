@@ -51,7 +51,7 @@ public class Main {
                 'replay' - to restart the game
                 'castling0' or 'castling7' - for castling along the corresponding line
                 'move 1 1 2 3' - to move a piece from position 1 1 to 2 3 (the field is a two-dimensional array from 0 to 7)
-                Check whether the pieces can walk through each other, whether they eat each other correctly, 
+                Check whether the pieces can walk through each other, whether they eat each other correctly,
                 is it possible to check and castling?""");
         System.out.println();
         board.printBoard();
